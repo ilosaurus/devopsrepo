@@ -1,0 +1,21 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote
+  labels:
+    app: vote
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vote
+  template:
+    metadata:
+      labels:
+        app: vote
+    spec:
+      containers:
+      - name: vote
+        image: ilosaurus/vote:latest
+        ports:
+        - containerPort: 80
